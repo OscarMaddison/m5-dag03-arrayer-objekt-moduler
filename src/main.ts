@@ -42,6 +42,6 @@ console.log(Object.keys(kopp));
 console.log(meny.length);
 console.log(meny[0].namn);
 for (const ratt of meny) {
-    console.log(`${ratt.namn} - ${ratt.pris} kr`)
+    console.log(`${ratt.namn} – ${ratt.pris} kr`)
 }
 console.log(meny[meny.length-1].namn)

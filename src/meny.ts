@@ -12,13 +12,12 @@ export function vegetariskaRatter(meny: Ratt[]): Ratt[] { //Jag tror att filter(
 // 2. Bara namnen, som en array av text (map). ["Kardemummabulle", ...]
 export function rattNamn(meny: Ratt[]): string[] {  //Jag tror att map() är rätt metod
   return meny.map(ratt => ratt.namn);
-
-
 }
 
 // 3. En prislista som text: "Kardemummabulle – 35 kr" (map + formateraPris)
-export function prislista(meny: Ratt[]): string[] {
-  // TODO
+export function prislista(meny: Ratt[]): string[] { //Jag tror att map() är rätt metod
+  return meny.map(ratt => `${ratt.namn} – ${formateraPris(ratt.pris)}`);
+  `${ratt.namn} – ${formateraPris(ratt.pris)}`
 }
 
 // 4. Hitta en rätt via id (find). Returnerar objektet, eller undefined om det saknas.

@@ -8,7 +8,16 @@ import { meny } from "./data";
 // d) skriv ut platsen för "Latte" (indexOf) och om "Cola" finns (includes).
 // e) skriv ut hela listan som en text: drycker.join(", ")
 // TODO
-
+const drycker: string[] = ["Bryggkaffe", "Latte", "Te"];
+drycker.push("Chai");
+console.log(drycker);
+console.log(drycker.length);
+let skrap = drycker.at(-1);
+drycker.pop();
+console.log(skrap);
+console.log(drycker.indexOf("Latte"));
+console.log(drycker.includes("Cola"));
+console.log(drycker.join(", "));
 
 // UPPGIFT 2: objekt
 // a) skapa const kopp = { namn: "Latte", pris: 45, vegetarisk: true };

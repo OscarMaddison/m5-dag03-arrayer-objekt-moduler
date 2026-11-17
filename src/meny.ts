@@ -17,7 +17,6 @@ export function rattNamn(meny: Ratt[]): string[] {  //Jag tror att map() är rä
 // 3. En prislista som text: "Kardemummabulle – 35 kr" (map + formateraPris)
 export function prislista(meny: Ratt[]): string[] { //Jag tror att map() är rätt metod
   return meny.map(ratt => `${ratt.namn} – ${formateraPris(ratt.pris)}`);
-  `${ratt.namn} – ${formateraPris(ratt.pris)}`
 }
 
 // 4. Hitta en rätt via id (find). Returnerar objektet, eller undefined om det saknas.
@@ -26,8 +25,14 @@ export function hittaRatt(meny: Ratt[], id: number): Ratt | undefined { //Jag tr
 }
 
 // 5. Den billigaste rätten (reduce). Returnerar objektet. Tom lista ger undefined.
-export function billigast(meny: Ratt[]): Ratt | undefined {
-  // TODO
+export function billigast(meny: Ratt[]): Ratt | undefined { //Jag tror att reduce() är rätt metod
+  return meny.reduce((lagst: Ratt, ratt: Ratt) => {
+    if (lagst === undefined || ratt.pris < lagst.pris) {
+      return ratt;;
+    } else {
+      return lagst;
+    }
+  });
 }
 
 // 6. Sortera efter pris, billigast först. Returnerar en NY array.

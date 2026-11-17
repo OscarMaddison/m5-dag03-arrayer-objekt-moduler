@@ -47,7 +47,7 @@ export function sorteraEfterPris(meny: Ratt[]): Ratt[] {  //Jag tror att sort() 
 export function totalPris(order: OrderRad[], meny: Ratt[]): number {  //Jag tror att find() och reduce() är rätt metoder
   return order.reduce((pris: number, orderRad: OrderRad) => {
     if (meny.find(ratt => ratt.id === orderRad.id) != undefined) {
-      return (orderRad.antal * meny.find(ratt => ratt.id === orderRad.id).pris) + pris;
+      return (orderRad.antal * meny.find(ratt => ratt.id === orderRad.id).pris) + pris; //Står "Object is possibly 'undefined'." på `meny.find(ratt => ratt.id === orderRad.id)`, men denna kodrad kan bara ankallas om `meny.find(ratt => ratt.id === orderRad.id)` inte är undefined.
     } else {
       return pris;
     }

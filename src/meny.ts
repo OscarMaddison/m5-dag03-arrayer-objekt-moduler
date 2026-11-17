@@ -26,13 +26,13 @@ export function hittaRatt(meny: Ratt[], id: number): Ratt | undefined { //Jag tr
 
 // 5. Den billigaste rätten (reduce). Returnerar objektet. Tom lista ger undefined.
 export function billigast(meny: Ratt[]): Ratt | undefined { //Jag tror att reduce() är rätt metod
-  return meny.reduce((lagst: Ratt, ratt: Ratt) => {
+  return meny.reduce((lagst: Ratt | undefined, ratt: Ratt) => {
     if (lagst === undefined || ratt.pris < lagst.pris) {
       return ratt;;
     } else {
       return lagst;
     }
-  });
+  }, undefined);
 }
 
 // 6. Sortera efter pris, billigast först. Returnerar en NY array.

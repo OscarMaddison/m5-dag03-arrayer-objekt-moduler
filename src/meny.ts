@@ -5,13 +5,15 @@ import { formateraPris } from "./pris";
 import type { Ratt, OrderRad } from "./typer";
 
 // 1. Alla vegetariska rätter (filter). Returnerar en ny array.
-export function vegetariskaRatter(meny: Ratt[]): Ratt[] { //Jag tror att filter är rätt metod
+export function vegetariskaRatter(meny: Ratt[]): Ratt[] { //Jag tror att filter() är rätt metod
   return meny.filter(ratt => ratt.vegetarisk === true);
 }
 
 // 2. Bara namnen, som en array av text (map). ["Kardemummabulle", ...]
-export function rattNamn(meny: Ratt[]): string[] {
-  // TODO
+export function rattNamn(meny: Ratt[]): string[] {  //Jag tror att map() är rätt metod
+  return meny.map(ratt => ratt.namn);
+
+
 }
 
 // 3. En prislista som text: "Kardemummabulle – 35 kr" (map + formateraPris)

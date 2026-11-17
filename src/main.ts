@@ -7,7 +7,7 @@ import { meny } from "./data";
 // c) ta bort sista med pop och skriv ut vad som togs bort.
 // d) skriv ut platsen för "Latte" (indexOf) och om "Cola" finns (includes).
 // e) skriv ut hela listan som en text: drycker.join(", ")
-// TODO
+
 const drycker: string[] = ["Bryggkaffe", "Latte", "Te"];
 drycker.push("Chai");
 console.log(drycker);
@@ -25,8 +25,14 @@ console.log(drycker.join(", "));
 // c) ändra priset till 48, och lägg till egenskapen storlek: "stor"
 //    TypeScript klagar på storlek. Beskriv objektet med en interface där storlek är valfri (storlek?: string).
 // d) skriv ut Object.keys(kopp)
-// TODO
 
+interface Kopp { namn: string; pris: number; vegetarisk: boolean; storlek?: string; };
+const kopp: Kopp = { namn: "Latte", pris: 45, vegetarisk: true };
+console.log(kopp.namn);
+console.log(kopp["pris"]);
+kopp.pris = 48;
+kopp.storlek = "stor";
+console.log(Object.keys(kopp));
 
 // UPPGIFT 3: arrayer av objekt
 // a) skriv ut hur många rätter menyn har och namnet på den första

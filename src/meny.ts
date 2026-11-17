@@ -83,7 +83,13 @@ export function perKategori(meny: Ratt[]): Record<string, number> { //Jag tror a
 
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).
 export function medNyttPris(ratt: Ratt, nyttPris: number): Ratt {
-  const nyRatt: Ratt = ratt;
-  nyRatt.pris = nyttPris;
-  return nyRatt;
+  return {
+    id: ratt.id,
+    namn: ratt.namn,
+    pris: nyttPris,
+    kategori: ratt.kategori,
+    vegetarisk: ratt.vegetarisk,
+    bild: ratt.bild,
+    beskrivning: ratt.beskrivning,
+  };
 }

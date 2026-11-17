@@ -55,8 +55,54 @@ export function totalPris(order: OrderRad[], meny: Ratt[]): number {  //Jag tror
 }
 
 // 8. Antal rätter per kategori som ett objekt: { bakverk: 3, dryck: 2, lunch: 3 } (reduce)
-export function perKategori(meny: Ratt[]): Record<string, number> {
-  // TODO
+export function perKategori(meny: Ratt[]): Record<string, number> { //Jag tror att reduce() och map() är rätt metoder
+  let antalBakverk: number = meny.reduce((antal: number, ratt: Ratt) => {
+    if (ratt.kategori === "bakverk") {
+      return antal + 1;
+    } else {
+      return antal;
+    }
+  }, 0);
+
+  let antalDryck: number = meny.reduce((antal: number, ratt: Ratt) => {
+    if (ratt.kategori === "dryck") {
+      return antal + 1;
+    } else {
+      return antal;
+    }
+  }, 0);
+
+  let antalLunch: number = meny.reduce((antal: number, ratt: Ratt) => {
+    if (ratt.kategori === "lunch") {
+      return antal + 1;
+    } else {
+      return antal;
+    }
+  }, 0);
+
+  return {
+    "bakverk": meny.reduce((antal: number, ratt: Ratt) => {
+      if (ratt.kategori === "bakverk") {
+        return antal + 1;
+      } else {
+        return antal;
+      }
+    }, 0),
+    "dryck": meny.reduce((antal: number, ratt: Ratt) => {
+      if (ratt.kategori === "dryck") {
+        return antal + 1;
+      } else {
+        return antal;
+      }
+    }, 0),
+    "lunch": meny.reduce((antal: number, ratt: Ratt) => {
+      if (ratt.kategori === "lunch") {
+        return antal + 1;
+      } else {
+        return antal;
+      }
+    }, 0)
+    };
 }
 
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).

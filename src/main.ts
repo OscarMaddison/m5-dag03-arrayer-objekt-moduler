@@ -1,5 +1,6 @@
 // Dag 3, del 1: Arrayer och objekt i Console.
 import { meny } from "./data";
+import { studentPris } from "./rabatt.js";
 
 // UPPGIFT 1: arrayer
 // a) skapa const drycker: string[] = ["Bryggkaffe", "Latte", "Te"];
@@ -44,4 +45,6 @@ console.log(meny[0].namn);
 for (const ratt of meny) {
     console.log(`${ratt.namn} – ${ratt.pris} kr`)
 }
-console.log(meny[meny.length-1].namn)
+console.log(meny[meny.length-1].namn);
+
+console.log(studentPris(35));

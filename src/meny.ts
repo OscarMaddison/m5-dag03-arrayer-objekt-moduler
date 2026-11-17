@@ -5,8 +5,8 @@ import { formateraPris } from "./pris";
 import type { Ratt, OrderRad } from "./typer";
 
 // 1. Alla vegetariska rätter (filter). Returnerar en ny array.
-export function vegetariskaRatter(meny: Ratt[]): Ratt[] {
-  // TODO
+export function vegetariskaRatter(meny: Ratt[]): Ratt[] { //Jag tror att filter är rätt metod
+  return meny.filter(ratt => ratt.vegetarisk === true);
 }
 
 // 2. Bara namnen, som en array av text (map). ["Kardemummabulle", ...]

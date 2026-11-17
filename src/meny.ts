@@ -28,7 +28,7 @@ export function hittaRatt(meny: Ratt[], id: number): Ratt | undefined { //Jag tr
 export function billigast(meny: Ratt[]): Ratt | undefined { //Jag tror att reduce() är rätt metod
   return meny.reduce((lagst: Ratt | undefined, ratt: Ratt) => {
     if (lagst === undefined || ratt.pris < lagst.pris) {
-      return ratt;;
+      return ratt;
     } else {
       return lagst;
     }
@@ -44,8 +44,14 @@ export function sorteraEfterPris(meny: Ratt[]): Ratt[] {  //Jag tror att sort() 
 
 // 7. Totalpris för en order. order = [{ id: 1, antal: 2 }, { id: 5, antal: 1 }]
 //    Slå upp priset för varje id i menyn. Okända id räknas som 0 kr.
-export function totalPris(order: OrderRad[], meny: Ratt[]): number {
-  // TODO
+export function totalPris(order: OrderRad[], meny: Ratt[]): number {  //Jag tror att find() och reduce() är rätt metoder
+  return order.reduce((pris: number, orderRad: OrderRad) => {
+    if (meny.find(ratt => ratt.id === orderRad.id) != undefined) {
+      return (orderRad.antal * meny.find(ratt => ratt.id === orderRad.id).pris) + pris;
+    } else {
+      return pris;
+    }
+  }, 0);
 }
 
 // 8. Antal rätter per kategori som ett objekt: { bakverk: 3, dryck: 2, lunch: 3 } (reduce)

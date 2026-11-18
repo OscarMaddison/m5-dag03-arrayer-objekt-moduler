@@ -46,10 +46,11 @@ export function sorteraEfterPris(meny: Ratt[]): Ratt[] {  //Jag tror att sort() 
 //    Slå upp priset för varje id i menyn. Okända id räknas som 0 kr.
 export function totalPris(order: OrderRad[], meny: Ratt[]): number {  //Jag tror att find() och reduce() är rätt metoder
   return order.reduce((pris: number, orderRad: OrderRad) => {
-    if (meny.find(ratt => ratt.id === orderRad.id) != undefined) {
-      return (orderRad.antal * meny.find(ratt => ratt.id === orderRad.id).pris) + pris; //Står "Object is possibly 'undefined'." på `meny.find(ratt => ratt.id === orderRad.id)`, men denna kodrad kan bara ankallas om `meny.find(ratt => ratt.id === orderRad.id)` inte är undefined.
+    const ratt = meny.find(r => r.id === orderRad.id);   // anropa find en gång
+    if (ratt !== undefined) {
+      return pris + orderRad.antal * ratt.pris;          // här vet TypeScript att ratt finns
     } else {
-      return pris;
+      return pris;                                       // okänt id räknas som 0 kr
     }
   }, 0);
 }
